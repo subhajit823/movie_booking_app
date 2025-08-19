@@ -92,6 +92,7 @@ router.post("/forgot-password", async (req, res) => {
     const resetToken = generateToken();
     user.resetPasswordToken = resetToken;
     user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+    
     await user.save();
 
     const resetUrl = `https://movie-booking-app-658h.vercel.app/reset-password/${resetToken}`; // Adjust frontend URL
