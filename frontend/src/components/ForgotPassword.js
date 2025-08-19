@@ -11,7 +11,7 @@ export default function ForgotPassword() {
     setMessage("");
     setError("");
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/forgot-password", { email });
+      const res = await axios.post("https://movie-booking-app-xi-eight.vercel.app/api/auth/forgot-password", { email });
       setMessage(res.data.message);
     } catch (err) {
       console.error(err);

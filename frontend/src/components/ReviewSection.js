@@ -11,7 +11,7 @@ export default function ReviewSection({ movieId, onClose }) {
 
   const fetchReviews = useCallback(async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/reviews/${movieId}`);
+      const res = await axios.get(`https://movie-booking-app-xi-eight.vercel.app/api/reviews/${movieId}`);
       setReviews(res.data);
       setLoading(false);
     } catch (err) {
@@ -50,7 +50,7 @@ export default function ReviewSection({ movieId, onClose }) {
       // ✅ Check if we are editing or adding a new review
       if (editingReviewId) {
         await axios.put(
-          `http://localhost:5000/api/reviews/${editingReviewId}`,
+          `https://movie-booking-app-xi-eight.vercel.app/api/reviews/${editingReviewId}`,
           reviewForm,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -58,7 +58,7 @@ export default function ReviewSection({ movieId, onClose }) {
         setEditingReviewId(null);
       } else {
         await axios.post(
-          `http://localhost:5000/api/reviews/${movieId}`,
+          `https://movie-booking-app-xi-eight.vercel.app/api/reviews/${movieId}`,
           reviewForm,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -80,7 +80,7 @@ export default function ReviewSection({ movieId, onClose }) {
       if (!window.confirm("Are you sure you want to delete this review?")) {
           return;
       }
-      await axios.delete(`http://localhost:5000/api/reviews/${reviewId}`, {
+      await axios.delete(`https://movie-booking-app-xi-eight.vercel.app/api/reviews/${reviewId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert("Review deleted successfully!");

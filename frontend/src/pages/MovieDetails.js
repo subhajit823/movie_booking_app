@@ -12,7 +12,7 @@ export default function MovieDetails() {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/movies/${movieId}`);
+        const res = await axios.get(`https://movie-booking-app-xi-eight.vercel.app/api/movies/${movieId}`);
         setMovie(res.data);
         setLoading(false);
       } catch (err) {

@@ -6,7 +6,7 @@ export default function Home() {
   const [movies, setMovies] = useState([]);
   const fetchMovies = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/movies");
+      const res = await axios.get("https://movie-booking-app-xi-eight.vercel.app/api/movies");
       setMovies(res.data);
     } catch (err) {
       console.error(err);

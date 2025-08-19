@@ -13,7 +13,7 @@ export default function SearchPage() {
     const fetchMovies = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:5000/api/movies/search/${query}`);
+        const res = await axios.get(`https://movie-booking-app-xi-eight.vercel.app/api/movies/search/${query}`);
         setMovies(res.data);
         setLoading(false);
       } catch (err) {

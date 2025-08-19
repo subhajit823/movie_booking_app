@@ -15,11 +15,11 @@ const SeatSelection = () => {
   useEffect(() => {
     const fetchMovieAndSeats = async () => {
       try {
-        const movieRes = await axios.get(`http://localhost:5000/api/movies/${movieId}`);
+        const movieRes = await axios.get(`https://movie-booking-app-xi-eight.vercel.app/api/movies/${movieId}`);
         setMovie(movieRes.data);
 
         const showtimeRes = await axios.get(
-          `http://localhost:5000/api/movies/${movieId}/showtime/${showtimeId}`
+          `https://movie-booking-app-xi-eight.vercel.app/api/movies/${movieId}/showtime/${showtimeId}`
         );
         setShowtime(showtimeRes.data);
         setLoading(false);
@@ -69,7 +69,7 @@ const SeatSelection = () => {
       const seatsToBook = selectedSeats.map(seatNumber => ({ seatNumber }));
 
       await axios.post(
-        `http://localhost:5000/api/bookings`,
+        `https://movie-booking-app-xi-eight.vercel.app/api/bookings`,
         {
           movieId,
           showtimeId,

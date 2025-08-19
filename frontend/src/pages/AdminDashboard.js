@@ -18,7 +18,7 @@ export default function AdminDashboard() {
     try {
       const token = localStorage.getItem("token");
       if (!token) return;
-      const res = await axios.get("http://localhost:5000/api/movies/admin", {
+      const res = await axios.get("https://movie-booking-app-xi-eight.vercel.app/api/movies/admin", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMovies(res.data);
@@ -38,13 +38,13 @@ export default function AdminDashboard() {
       if (!token) return alert("Login as admin first");
       
       if (editingMovie) {
-        await axios.put(`http://localhost:5000/api/movies/${editingMovie._id}`, movieForm, {
+        await axios.put(`https://movie-booking-app-xi-eight.vercel.app/api/movies/${editingMovie._id}`, movieForm, {
           headers: { Authorization: `Bearer ${token}` }
         });
         alert(`Movie updated: ${movieForm.title}`);
         setEditingMovie(null);
       } else {
-        await axios.post("http://localhost:5000/api/movies", movieForm, {
+        await axios.post("https://movie-booking-app-xi-eight.vercel.app/api/movies", movieForm, {
           headers: { Authorization: `Bearer ${token}` }
         });
         alert(`Movie added: ${movieForm.title}`);
@@ -66,7 +66,7 @@ export default function AdminDashboard() {
       if (!window.confirm("Are you sure you want to delete this movie?")) {
           return;
       }
-      await axios.delete(`http://localhost:5000/api/movies/${movieId}`, {
+      await axios.delete(`https://movie-booking-app-xi-eight.vercel.app/api/movies/${movieId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert("Movie deleted successfully");

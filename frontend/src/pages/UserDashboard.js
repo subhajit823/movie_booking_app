@@ -15,7 +15,7 @@ export default function UserDashboard() {
         setLoading(false);
         return;
       }
-      const res = await axios.get("http://localhost:5000/api/bookings/my-bookings", {
+      const res = await axios.get("https://movie-booking-app-xi-eight.vercel.app/api/bookings/my-bookings", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -43,7 +43,7 @@ export default function UserDashboard() {
       }
       
       await axios.put(
-        `http://localhost:5000/api/bookings/cancel/${bookingId}`,
+        `https://movie-booking-app-xi-eight.vercel.app/api/bookings/cancel/${bookingId}`,
         {},
         {
           headers: {
